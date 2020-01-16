@@ -8,6 +8,7 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
+import TripDetails from './DetailsComponent';
 
 class Trips extends Component {
   constructor(props) {
@@ -20,37 +21,61 @@ class Trips extends Component {
     this.setState({ selectedTrip: trip });
   }
 
-  renderSelectedTrip(trip) {
-    if (trip) {
-      return (
-        <Card>
-          <CardImg top src={trip.image} alt={trip.name} />
-          <CardBody>
-            <CardTitle>{trip.name}</CardTitle>
-            <CardText>{trip.description}</CardText>
-          </CardBody>
-        </Card>
-      );
-    }
-    return <div />;
-  }
+  // renderSelectedTrip(trip) {
+  //   if (trip) {
+  //     return (
+  //       <Card>
+  //         <CardImg top src={trip.image} alt={trip.name} />
+  //         <CardBody>
+  //           <CardTitle>{trip.name}</CardTitle>
+  //           <CardText>{trip.description}</CardText>
+  //         </CardBody>
+  //       </Card>
+  //     );
+  //   }
+  //   return <div />;
+  // }
 
   render() {
     const trips = this.props.trips.map(trip => {
       return (
-        <div key={trip.id} className="col-md-5 mx-auto my-3">
+        <div key={trip.id} className="col-md-6 my-3">
           <Card onClick={() => this.onTripSelect(trip)}>
-            <CardImg top max-width="50%" src={trip.image} alt={trip.name} />
-            <CardBody>
-              <CardTitle>{trip.name}</CardTitle>
-              <CardSubtitle>Description</CardSubtitle>
-              <CardText>
-                {trip.description}
-              </CardText>
-              <Button>Button</Button>
-            </CardBody>
+            <div className="row">
+              <div className="col-md-4">
+                <CardImg width="100%"
+                  top
+                  className="text-center"
+                  // style={{ height: "400px", width: "267px" }}
+                  src={trip.image}
+                  alt={trip.name}
+                />
+              </div>
+              <div className="col-md-8">
+                <CardBody>
+                  <CardTitle>{trip.name}</CardTitle>
+                  <CardSubtitle>Description</CardSubtitle>
+                  <CardText>{trip.description}</CardText>
+                  <Button>Button</Button>
+                </CardBody>
+              </div>
+            </div>
           </Card>
         </div>
+
+        // <div key={trip.id} className="col-md-5 mx-auto my-3">
+        //   <Card onClick={() => this.onTripSelect(trip)}>
+        //     <CardImg top className="text-center" style={{ height:"400px", width:"267px" }} src={trip.image} alt={trip.name} />
+        //     <CardBody>
+        //       <CardTitle>{trip.name}</CardTitle>
+        //       <CardSubtitle>Description</CardSubtitle>
+        //       <CardText>
+        //         {trip.description}
+        //       </CardText>
+        //       <Button>Button</Button>
+        //     </CardBody>
+        //   </Card>
+        // </div>
       );
     });
 
@@ -58,10 +83,16 @@ class Trips extends Component {
       <div className="container">
         <div className="row">{trips}</div>
         <div className="row">
+          <div className="col-md-5 m1">
+            <TripDetails trip={this.state.selectedTrip} />
+          </div>
+        </div>
+        {/* <div className="row">{trips}</div>
+        <div className="row">
           <div className="col-md-5 m-auto">
             {this.renderSelectedTrip(this.state.selectedTrip)}
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
