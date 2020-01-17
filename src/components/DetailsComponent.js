@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Card,
   CardImg,
@@ -7,13 +7,7 @@ import {
   CardTitle,
 } from "reactstrap";
 
-class TripDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  renderTripDetails (trip) {
+  function RenderTripDetails (trip) {
     return (
       <div className="col-md-5 m-1">
         <Card>
@@ -27,16 +21,17 @@ class TripDetails extends Component {
     );
   }
 
-  render() {
-    if (this.props.trip) {
-      return (
-        <div className="row">
-          {this.renderTripDetails(this.props.trip)}
-        </div>
-      );
-    }
-    return <div />;
+
+  
+function TripDetails(props) {
+  if (props.trip) {
+    return (
+      <div className="row">
+      {RenderTripDetails(props.trip)}
+      </div>
+    );
   }
+  return <div />;
 }
 
 export default TripDetails;

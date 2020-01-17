@@ -52,5 +52,6 @@ export const TRIPSDATA = [
     difficulty: 9,
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis doloribus, pariatur, delectus corrupti harum sint deserunt porro beatae quisquam voluptatum a qui, perferendis tenetur doloremque illum eius dicta quod? Facili."
+    
   }
 ]

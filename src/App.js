@@ -1,34 +1,16 @@
 import React, { Component } from 'react';
+import Main from './components/MainComponent';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Trips from './components/TripsComponent'
-import { TRIPSDATA } from './shared/tripsData';
-
 
 class App extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          trips: TRIPSDATA
-      };
-  }
-
   render() {
     return (
-      <div>
-        <Navbar className="navcolordc">
-          <div className="container">
-            <NavbarBrand href="/">
-              Robbers Roost
-            </NavbarBrand>
-          </div>
-        </Navbar>
-        <div className="container">
-          <div className="row">
-            <Trips trips={this.state.trips}/>
-          </div>
+      <BrowserRouter>
+        <div className="App">
+          <Main />
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }
