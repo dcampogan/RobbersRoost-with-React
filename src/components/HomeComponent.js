@@ -1,36 +1,25 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import NavbarComp from './NavbarComponent';
 
-// function RenderCard({item}) {
-//   return (
-//       <Card>
-//           <CardImg src={item.image} alt={item.name} />
-//           <CardBody>
-//               <CardTitle>{item.name}</CardTitle>
-//               <CardText>{item.description}</CardText>
-//           </CardBody>
-//       </Card>
-//   );
-// }
-
-function Home(props) {
+function Home() {
   return (
-    <div className="container">
-      <h4>Home</h4>
-      {/* <div className="container">
-        <div className="row">
-          <div className="col-md m-1">
-            <RenderCard item={props.campsite} />
-          </div>
-          <div className="col-md m-1">
-            <RenderCard item={props.promotion} />
-          </div>
-          <div className="col-md m-1">
-            <RenderCard item={props.partner} />
+    <React.Fragment>
+      <NavbarComp />
+      <header className="deadhorse">
+        <div className="container d-flex h-100 align-items-center">
+          <div className="mx-auto text-center">
+            <h1 className="text-uppercase">where the pavement ends...</h1>
+            <h2>your adventure begins.</h2>
+            {/* <a href="trips.html" className="btn btn btn-lg mybtn-white text-white">
+              You could be here
+            </a> */}
+            <button type="button" className="btn btn-lg mybtn-white text-white">
+              You could be here
+            </button>
           </div>
         </div>
-      </div> */}
-    </div>
+      </header>
+    </React.Fragment>
   );
 }
 

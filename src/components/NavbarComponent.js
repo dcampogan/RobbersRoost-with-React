@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
-class Header extends Component {
+class NavbarComp extends Component {
   constructor(props) {
     super(props);
     this.toggleNav = this.toggleNav.bind(this);
@@ -20,7 +20,45 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <Jumbotron fluid>
+        <Navbar className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+          <div className="container">
+            <NavbarBrand className="navbar-brand pl-3" href="/"
+              >ROBBER'S ROOST OUTFITTERS
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggleNav} />
+            <Collapse isOpen={this.state.isNavOpen} navbar>
+              <nav navbar className="navbar-nav ml-auto">
+                <NavItem>
+                  <NavLink className="nav-link" to="/home">
+                    HOME
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/trips">
+                    TRIPS
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/courses">
+                    COURSES
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/about">
+                    ABOUT US
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/contact">
+                    CONTACT US
+                  </NavLink>
+                </NavItem>
+              </nav>
+            </Collapse>
+          </div>
+        </Navbar>
+
+        {/* <Jumbotron fluid>
           <div className="container">
             <div className="row">
               <div className="col">
@@ -29,12 +67,14 @@ class Header extends Component {
               </div>
             </div>
           </div>
-        </Jumbotron>
-        <Navbar className="navcolordc" dark sticky="top" expand="md">
+        </Jumbotron> */}
+
+        {/* <Navbar className="navcolordc" dark sticky="top" expand="md">
           <div className="container">
             <NavbarBrand className="mr-auto" href="/">Robbers Roost</NavbarBrand>
             <NavbarToggler onClick={this.toggleNav} />
             <Collapse isOpen={this.state.isNavOpen} navbar>
+
               <Nav navbar>
                 <NavItem>
                   <NavLink className="nav-link" to="/home">
@@ -59,10 +99,10 @@ class Header extends Component {
               </Nav>
             </Collapse>
           </div>
-        </Navbar>
+        </Navbar> */}
       </React.Fragment>
     );
   }
 }
 
-export default Header;
+export default NavbarComp;

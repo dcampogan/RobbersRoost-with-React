@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import Trips from './TripsComponent';
 import TripDetails from './DetailsComponent';
-import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
@@ -35,7 +34,7 @@ class Main extends Component {
     const TripWithId = ({match}) => {
       return (
           <TripDetails 
-              trip={this.state.trips.filter(trip => trip.id === +match.params.TripId)[0]}
+              trip={this.state.trips.filter(trip => trip.id === +match.params.tripId)[0]}
               // description={this.state.comments.filter(comment => comment.TripId === +match.params.TripId)}
           />
       );
@@ -43,7 +42,7 @@ class Main extends Component {
 
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <Route path="/home" component={HomePage} />
           <Route exact path="/trips" render={() => <Trips trips={this.state.trips} />} />
